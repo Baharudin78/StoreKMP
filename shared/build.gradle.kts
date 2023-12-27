@@ -45,12 +45,11 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies{
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
                 api(libs.koin.core)
                 implementation(libs.koin.compose)
-                implementation(libs.compose.material3)
-                implementation(libs.compose.material)
-                implementation(libs.compose.foundation)
-                implementation(libs.compose.ui)
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.logging)
                 implementation(libs.ktor.client.json)
@@ -59,11 +58,12 @@ kotlin {
                 api(libs.moko.mvvm.core)
                 api(libs.moko.mvvm.compose)
                 implementation(libs.kamel.image)
+                implementation(libs.voyager.tab.navigator)
+                implementation(libs.voyager.navigation)
+                implementation(libs.voyager.transition)
+                implementation(libs.datastore.core)
             }
         }
-//        commonMain.dependencies {
-//
-//        }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
@@ -77,12 +77,10 @@ kotlin {
                 implementation(libs.koin.android)
                 implementation(libs.compose.ui.tooling.preview)
                 implementation(libs.datastore.core)
+                implementation(libs.datastore.preferences)
             }
 
         }
-//        androidMain.dependencies {
-//
-//        }
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
