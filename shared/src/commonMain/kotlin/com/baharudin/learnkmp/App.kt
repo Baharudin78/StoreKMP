@@ -7,6 +7,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import com.baharudin.learnkmp.core.Context
+import com.baharudin.learnkmp.di.appModule
+import com.baharudin.learnkmp.di.getDataStoreModuleByPlatform
 import com.baharudin.learnkmp.presentation.screen.splash.SplashScreen
 import org.koin.compose.KoinApplication
 import org.koin.dsl.module
@@ -28,9 +30,9 @@ fun StoreKMPTheme(
 }
 
 @Composable
-fun App(context : Context){
+fun App(){
     KoinApplication(application = {
-        module()
+        modules(getDataStoreModuleByPlatform(), appModule)
     }) {
         StoreKMPTheme {
             Navigator(SplashScreen())
