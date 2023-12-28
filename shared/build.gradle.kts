@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.kotlinSerialization)
+   // alias(libs.plugins.kmm.resource)
 }
 
 kotlin {
@@ -48,6 +49,8 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
                 api(libs.koin.core)
                 implementation(libs.koin.compose)
                 implementation(libs.ktor.client.core)
@@ -62,6 +65,7 @@ kotlin {
                 implementation(libs.voyager.navigation)
                 implementation(libs.voyager.transition)
                 implementation(libs.datastore.core)
+                implementation(libs.datastore.preferences)
             }
         }
         commonTest.dependencies {
@@ -88,7 +92,7 @@ kotlin {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+         //   iosSimulatorArm64Main.dependsOn(this)
 
             dependencies{
                 implementation(libs.ktor.client.darwing)
