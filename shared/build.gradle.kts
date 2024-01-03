@@ -65,6 +65,7 @@ kotlin {
                 implementation(libs.voyager.transition)
                 implementation(libs.datastore.core)
                 implementation(libs.datastore.preferences)
+                implementation(libs.kermit)
             }
         }
         commonTest.dependencies {
